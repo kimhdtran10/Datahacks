@@ -6,21 +6,7 @@ from config import FEATURES
 
 st.title("Pokémon Price Predictor")
 
-<<<<<<< HEAD
-X_train, y_train load_data()
-model = build_model()
-model = train_model(model, X_train, y_train)
 
-inputs = []
-for feature in x_train.columns.values.tolist():
-    default = float(df[feature].mean())
-    val = st.number_input(f"{feature}", value=default)
-    inputs.append(val)
-
-input_df = pd.DataFrame([inputs], columns=X_train.columns.values.tolist())
-input_scaled = scaler.transform(input_df)
-pred = model.predict(input_scaled)[0]
-=======
 if not os.path.exists("model.pkl") or not os.path.exists("scaler.pkl"):
     st.error("Model not found. Please run pokefood.py first to train and save the model.")
     st.stop()
@@ -32,7 +18,6 @@ df = df[(df['Edible'] == 1) & (df['Price per lb'] > 0)]
 
 st.header("🔍 Look up a Pokémon")
 name_query = st.text_input("Enter Pokémon name (e.g. Bulbasaur)")
->>>>>>> 09505c31bfeb480946379b52894a831598e092ac
 
 if name_query:
     match = df[df['Name'].str.lower() == name_query.lower()]
